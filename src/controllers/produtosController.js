@@ -6,12 +6,14 @@ exports.Insert = (req, res, next) => {
     const descricao = req.body.descricao;
     const preco = req.body.preco;
     const qtdEstoque = req.body.qtdEstoque;
+    const ativo = req.body.ativo;
  
     Produtos.create({
         nome: nome,
         descricao: descricao,
         preco: preco,
         qtdEstoque: qtdEstoque,
+        ativo: ativo
     })
         .then(produtos => {
             if (produtos) {
@@ -53,6 +55,7 @@ exports.Update = (req, res, next) => {
     const descricao = req.body.descricao;
     const preco = req.body.preco;
     const qtdEstoque = req.body.qtdEstoque;
+    const ativo = req.body.ativo;
  
     Produtos.findByPk(id)
         .then(produtos => {
@@ -61,6 +64,7 @@ exports.Update = (req, res, next) => {
                     nome: nome,
                     descricao: descricao,
                     preco: preco,
+                    ativo: ativo,
                     qtdEstoque: qtdEstoque
                 },
                     {
